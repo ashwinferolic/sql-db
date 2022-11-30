@@ -9,6 +9,7 @@ const registerUserSchema = Joi.object({
     .length(10)
     .required(),
   password: Joi.string().min(6).required(),
+  role: Joi.string(),
   confirmPassword: Joi.string().valid(Joi.ref("password")).required(),
   address: Joi.object().required().keys({
     street: Joi.string().required(),

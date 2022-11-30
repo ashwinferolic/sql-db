@@ -8,9 +8,10 @@ const { errorHandler } = require("./middlewares/error.middleware");
 // dbs
 const sequelize = require("./config/db");
 const User = require("./components/users/user.model");
+const Product = require("./components/products/product.model");
 
 const app = express();
-// sequelize.sync({ force: true });
+sequelize.sync();
 
 // middlewares
 app.use(express.json());
@@ -20,6 +21,7 @@ app.use(cookieParser());
 
 // routes
 app.use("/api/users", require("./components/users/user.route"));
+app.use("/api/products", require("./components/products/product.route"));
 app.use(errorHandler);
 
 const PORT = 3000 || process.env.PORT;

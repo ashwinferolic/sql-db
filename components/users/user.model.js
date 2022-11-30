@@ -1,4 +1,3 @@
-const Sequelize = require("sequelize");
 const sequelize = require("../../config/db");
 const { DataTypes } = require("sequelize");
 
@@ -14,6 +13,10 @@ const User = sequelize.define("user", {
   },
   mobileNumber: {
     type: DataTypes.BIGINT,
+  },
+  role: {
+    type: DataTypes.STRING,
+    defaultValue: "customer",
   },
   address: {
     type: DataTypes.JSON,
